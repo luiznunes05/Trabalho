@@ -1,0 +1,55 @@
+﻿@model Category
+
+<form method="post" >
+    <input asp-for="Id" hidden/>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Apagar Cadastro</h2>
+            <hr />
+        </div>       
+
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" disabled class="form-control" />            
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="City"></label>
+            <input asp-for="City" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ZipCode"></label>
+            <input asp-for="ZipCode" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Obs"></label>
+            <input asp-for="Obs" disabled class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-danger" style="width:150px;">Apagar</button>
+        <a asp-action="Index" class="btn btn-secondary" style="width:150px;">Retorna a Lista</a>
+
+    </div>
+
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

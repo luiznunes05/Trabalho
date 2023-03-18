@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4 pb-5">
+        <div class="col-6">
+            <h2 class="text-primary">Cadastro</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary"> <i class="bi bi-plus-circle-fill"></i>&nbsp; Criar Novo Cadastro</a>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped" style="width:100%;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>ZipCode</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Obs</th>
+                <th></th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (Category obj in Model)
+            {
+                <tr>
+                    <td style="width:15%;">@obj.Name</td>
+                    <td style="width:15%;">@obj.Address</td>
+                    <td style="width:10%;">@obj.City</td>
+                    <td style="width:8%;">@obj.ZipCode</td>
+                    <td style="width:8%;">@obj.Phone</td>
+                    <td style="width:10%;">@obj.Email</td>
+                    <td style="width:15%;">@obj.Obs</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Editar </a>
+                            <a asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash-fill"></i> Apagar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
