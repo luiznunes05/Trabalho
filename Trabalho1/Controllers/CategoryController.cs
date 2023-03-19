@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Trabalho1.Data;
 using Trabalho1.Models;
 
 namespace Trabalho1.Controllers
 {
+    
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -19,12 +21,14 @@ namespace Trabalho1.Controllers
             return View(objCategoryList);
         }
 
+        [Authorize]
         // Get
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         // Post
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -41,6 +45,7 @@ namespace Trabalho1.Controllers
 
         }
 
+        [Authorize]
         // Get
         public IActionResult Edit(int? id)
         {
@@ -60,6 +65,7 @@ namespace Trabalho1.Controllers
             return View(categoryFromDb);
         }
 
+        [Authorize]
         // Post
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -76,6 +82,7 @@ namespace Trabalho1.Controllers
 
         }
 
+        [Authorize]
         // Get
         public IActionResult Delete(int? id)
         {
@@ -95,6 +102,7 @@ namespace Trabalho1.Controllers
             return View(categoryFromDb);
         }
 
+        [Authorize]
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
